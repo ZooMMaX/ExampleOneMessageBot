@@ -1,0 +1,34 @@
+{
+  "bot": {
+    "main": {
+      "echo": "Vous avez envoyé un message :\n",
+      "keyboard": {
+        "docs": "Ouvrir la documentation de la bibliothèque",
+        "notification": "Envoyer une notification",
+        "photo": "Afficher l'image",
+        "text": "Afficher du texte simple"
+      },
+      "main": "Testez la fonctionnalité.\nPour revenir à la sélection de la langue, envoyez /start",
+      "notification": "Consultez les notifications ci-dessous",
+      "notify": {
+        "alert": "Ceci est une notification avec une fenêtre contextuelle",
+        "full": "C'est une notification sous forme de message de chat"
+      },
+      "photo": "C'est juste un chat",
+      "text": "Affichage du texte"
+    },
+    "start": {
+      "continue": "Continuer",
+      "start_message": "Bonjour ! Je suis Example OneMessageBot.\n\nSélectionnez votre langue et cliquez sur \"continuer\"."
+    }
+  },
+  "keyboard": {
+    "next_button": "➡️",
+    "prev_button": "⬅️"
+  },
+  "main": {
+    "bot_starting": "Le bot démarre...",
+    "notification": "Vous avez des notifications non lues",
+    "notify_close": "Fermer"
+  }
+}

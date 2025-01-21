@@ -1,0 +1,34 @@
+{
+  "bot": {
+    "main": {
+      "echo": "您发送了一条消息：\n",
+      "keyboard": {
+        "docs": "打开库文档",
+        "notification": "发送通知",
+        "photo": "显示图片",
+        "text": "显示纯文本"
+      },
+      "main": "测试功能。\n要返回语言选择，请发送 /start",
+      "notification": "查看下面的通知",
+      "notify": {
+        "alert": "这是一个带弹出窗口的通知",
+        "full": "这是一个聊天消息形式的通知"
+      },
+      "photo": "这只是只猫",
+      "text": "文本显示"
+    },
+    "start": {
+      "continue": "继续",
+      "start_message": "你好！我是 Example OneMessageBot。\n\n选择你的语言并点击“继续”。"
+    }
+  },
+  "keyboard": {
+    "next_button": "➡️",
+    "prev_button": "⬅️"
+  },
+  "main": {
+    "bot_starting": "机器人启动中...",
+    "notification": "您有未读通知",
+    "notify_close": "关闭"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bot": {
+    "main": {
+      "echo": "You have sent a message:\n",
+      "keyboard": {
+        "docs": "Open the library documentation",
+        "notification": "Send a notification",
+        "photo": "Show image",
+        "text": "Display plain text"
+      },
+      "main": "Test the functionality.\nTo return to the language selection, send /start",
+      "notification": "Check the notifications below",
+      "notify": {
+        "alert": "This is a notification with a pop-up window",
+        "full": "This is a notification in the form of a chat message"
+      },
+      "photo": "It's just a cat",
+      "text": "Text display"
+    },
+    "start": {
+      "continue": "Continue",
+      "start_message": "Hello! I'm Example OneMessageBot.\n\nSelect your language and click \"continue\"."
+    }
+  },
+  "keyboard": {
+    "next_button": "➡️",
+    "prev_button": "⬅️"
+  },
+  "main": {
+    "bot_starting": "Bot starting...",
+    "notification": "You have unread notifications",
+    "notify_close": "Close"
+  }
+}
