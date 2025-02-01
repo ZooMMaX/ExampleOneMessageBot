@@ -2,16 +2,22 @@ package ru.zoommax.windows;
 
 import com.pengrad.telegrambot.model.PhotoSize;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.request.LabeledPrice;
 import ru.zoommax.BotApp;
 import ru.zoommax.utils.CreateNotification;
+import ru.zoommax.utils.PaymentType;
 import ru.zoommax.utils.ViewMessageImpl;
 import ru.zoommax.utils.ViewMessageListener;
 import ru.zoommax.utils.db.NotificationType;
 import ru.zoommax.utils.keyboard.Keyboard;
 import ru.zoommax.utils.lang.UserLanguage;
+import ru.zoommax.view.InvoiceMessage;
 import ru.zoommax.view.PhotoMessage;
 import ru.zoommax.view.TextMessage;
 import ru.zoommax.view.ViewMessage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @ViewMessageListener
 public class MainWindow implements ViewMessageImpl {
@@ -23,10 +29,12 @@ public class MainWindow implements ViewMessageImpl {
         String notification = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.notification");
         String docs = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.docs");
         String updateMessage = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.update");
+        String donate = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.donate");
 
         return Keyboard.builder()
                 .chatId(chatId)
-                .code(".....{"+photo+";photo}{"+text+";text}\n" + //Any characters outside of {} except \n are ignored
+                .code("..............{"+donate+";donate}\n" +
+                        ".....{"+photo+";photo}{"+text+";text}\n" + //Any characters outside of {} except \n are ignored
                         "...{"+notification+";notification}{"+updateMessage+";update}\n" +
                         "{"+docs+";https://zoommax.github.io/OneMessageBot/}\n" +
                         "{\uD83C\uDDEC\uD83C\uDDE7\uD83C\uDDF7\uD83C\uDDFA\uD83C\uDDEB\uD83C\uDDF7\uD83C\uDDE8\uD83C\uDDF3;start}")
@@ -114,6 +122,21 @@ public class MainWindow implements ViewMessageImpl {
                             .updateTime(System.currentTimeMillis() + 5000)
                             .needUpdate(true)
                             .build();
+            case "donate":
+                List<LabeledPrice> prices = new ArrayList<>();
+                prices.add(new LabeledPrice("Donate", 1));
+                return InvoiceMessage.builder()
+                        .chatId(chatId)
+                        .title(BotApp.localizationManager.getTranslationForLanguage(UserLanguage.getUserLanguage(chatId), "bot.main.donate_title"))
+                        .description(BotApp.localizationManager.getTranslationForLanguage(UserLanguage.getUserLanguage(chatId), "bot.main.donate_description"))
+                        .payload(chatId+"")
+                        .currency("XTR")
+                        .prices(prices)
+                        .keyboard(Keyboard.builder()
+                                .chatId(chatId)
+                                .code(BotApp.localizationManager.getTranslationForLanguage(UserLanguage.getUserLanguage(chatId), "bot.main.keyboard.pay_button"))
+                                .build())
+                        .build();
         }
         return null;
     }
@@ -125,6 +148,28 @@ public class MainWindow implements ViewMessageImpl {
 
     @Override
     public ViewMessage onChosenInlineResult(String resultId, long queryId, String chatId, Update update) {
+        return null;
+    }
+
+
+    //testing function
+    @Override
+    public ViewMessage onPayment(PaymentType paymentType, String payload, int messageId, long chatId, Update update) {
+        if (paymentType.equals(PaymentType.PAYMENT)) {
+            return TextMessage.builder()
+                    .text(BotApp.localizationManager.getTranslationForLanguage(UserLanguage.getUserLanguage(chatId), "bot.main.thank"))
+                    .chatId(chatId)
+                    .onMessageFlag("mainWindow")
+                    .keyboard(getKeyboard(chatId))
+                    .build();
+        } else if (paymentType.equals(PaymentType.REFUND)) {
+            return TextMessage.builder()
+                    .text(BotApp.localizationManager.getTranslationForLanguage(UserLanguage.getUserLanguage(chatId), "bot.main.refund"))
+                    .chatId(chatId)
+                    .onMessageFlag("mainWindow")
+                    .keyboard(getKeyboard(chatId))
+                    .build();
+        }
         return null;
     }
 }

@@ -17,7 +17,7 @@ public class Main {
                 .botToken(botToken)
                 .languageDirPath("translations")
                 .defaultLanguage("en")
-                .buttonsRows(2)
+                .buttonsRows(3)
                 .build();
 
         new Thread(new BotApp(botSettings)).start();

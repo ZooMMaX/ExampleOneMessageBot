@@ -1,10 +1,14 @@
 {
   "bot": {
     "main": {
+      "donate_description": "让项目能够持续发展而不中断。",
+      "donate_title": "支持项目",
       "echo": "您发送了一条消息：\n",
       "keyboard": {
         "docs": "打开库文档",
+        "donate": "捐赠",
         "notification": "发送通知",
+        "pay_button": "{捐赠 1 XTR;pay}\n{取消;mainWindow}",
         "photo": "显示图片",
         "text": "显示纯文本",
         "update": "可更新消息"
@@ -16,7 +20,9 @@
         "full": "这是一个聊天消息形式的通知"
       },
       "photo": "这只是只猫",
+      "refund": "您已退款捐赠。",
       "text": "文本显示",
+      "thank": "谢谢！",
       "update": "此消息将在 5 秒后更新。",
       "update_2": "消息已更新。"
     },

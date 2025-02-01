@@ -1,10 +1,14 @@
 {
   "bot": {
     "main": {
+      "donate_description": "Afin que le projet puisse continuer à se développer sans interruptions.",
+      "donate_title": "Soutenir le projet",
       "echo": "Vous avez envoyé un message :\n",
       "keyboard": {
         "docs": "Ouvrir la documentation de la bibliothèque",
+        "donate": "Don",
         "notification": "Envoyer une notification",
+        "pay_button": "{Faire un don 1 XTR;pay}\n{Annuler;mainWindow}",
         "photo": "Afficher l'image",
         "text": "Afficher du texte simple",
         "update": "Message mis à jour"
@@ -16,7 +20,9 @@
         "full": "C'est une notification sous forme de message de chat"
       },
       "photo": "C'est juste un chat",
+      "refund": "Vous avez remboursé le don.",
       "text": "Affichage du texte",
+      "thank": "Merci !",
       "update": "Ce message sera mis à jour dans 5 secondes.",
       "update_2": "Le message a été mis à jour."
     },

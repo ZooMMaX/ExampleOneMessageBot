@@ -3,6 +3,7 @@ package ru.zoommax.windows;
 import com.pengrad.telegrambot.model.PhotoSize;
 import com.pengrad.telegrambot.model.Update;
 import ru.zoommax.BotApp;
+import ru.zoommax.utils.PaymentType;
 import ru.zoommax.utils.ViewMessageImpl;
 import ru.zoommax.utils.ViewMessageListener;
 import ru.zoommax.utils.keyboard.Keyboard;
@@ -77,6 +78,11 @@ public class Start implements ViewMessageImpl {
 
     @Override
     public ViewMessage onChosenInlineResult(String resultId, long queryId, String chatId, Update update) {
+        return null;
+    }
+
+    @Override
+    public ViewMessage onPayment(PaymentType paymentType, String s, int i, long l, Update update) {
         return null;
     }
 }
