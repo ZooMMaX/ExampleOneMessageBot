@@ -6,7 +6,8 @@
         "docs": "Ouvrir la documentation de la bibliothèque",
         "notification": "Envoyer une notification",
         "photo": "Afficher l'image",
-        "text": "Afficher du texte simple"
+        "text": "Afficher du texte simple",
+        "update": "Message mis à jour"
       },
       "main": "Testez la fonctionnalité.\nPour revenir à la sélection de la langue, envoyez /start",
       "notification": "Consultez les notifications ci-dessous",
@@ -15,7 +16,9 @@
         "full": "C'est une notification sous forme de message de chat"
       },
       "photo": "C'est juste un chat",
-      "text": "Affichage du texte"
+      "text": "Affichage du texte",
+      "update": "Ce message sera mis à jour dans 5 secondes.",
+      "update_2": "Le message a été mis à jour."
     },
     "start": {
       "continue": "Continuer",

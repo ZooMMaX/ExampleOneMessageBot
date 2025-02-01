@@ -22,11 +22,12 @@ public class MainWindow implements ViewMessageImpl {
         String text = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.text");
         String notification = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.notification");
         String docs = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.docs");
+        String updateMessage = BotApp.localizationManager.getTranslationForLanguage(userLanguage, "bot.main.keyboard.update");
 
         return Keyboard.builder()
                 .chatId(chatId)
                 .code(".....{"+photo+";photo}{"+text+";text}\n" + //Any characters outside of {} except \n are ignored
-                        "...{"+notification+";notification}\n" +
+                        "...{"+notification+";notification}{"+updateMessage+";update}\n" +
                         "{"+docs+";https://zoommax.github.io/OneMessageBot/}\n" +
                         "{\uD83C\uDDEC\uD83C\uDDE7\uD83C\uDDF7\uD83C\uDDFA\uD83C\uDDEB\uD83C\uDDF7\uD83C\uDDE8\uD83C\uDDF3;start}")
                 .build();
@@ -97,6 +98,22 @@ public class MainWindow implements ViewMessageImpl {
                         .onMessageFlag("mainWindow")
                         .keyboard(getKeyboard(chatId))
                         .build();
+                case "update":
+                    ViewMessage updateMessage = TextMessage.builder()
+                            .chatId(chatId)
+                            .text(BotApp.localizationManager.getTranslationForLanguage(UserLanguage.getUserLanguage(chatId), "bot.main.update_2"))
+                            .keyboard(getKeyboard(chatId))
+                            .onMessageFlag("mainWindow")
+                            .build();
+                    return TextMessage.builder()
+                            .chatId(chatId)
+                            .text(BotApp.localizationManager.getTranslationForLanguage(UserLanguage.getUserLanguage(chatId), "bot.main.update"))
+                            .keyboard(getKeyboard(chatId))
+                            .onMessageFlag("mainWindow")
+                            .viewMessageToUpdate(updateMessage.toString())
+                            .updateTime(System.currentTimeMillis() + 5000)
+                            .needUpdate(true)
+                            .build();
         }
         return null;
     }

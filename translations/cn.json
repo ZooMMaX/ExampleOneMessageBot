@@ -6,7 +6,8 @@
         "docs": "打开库文档",
         "notification": "发送通知",
         "photo": "显示图片",
-        "text": "显示纯文本"
+        "text": "显示纯文本",
+        "update": "可更新消息"
       },
       "main": "测试功能。\n要返回语言选择，请发送 /start",
       "notification": "查看下面的通知",
@@ -15,7 +16,9 @@
         "full": "这是一个聊天消息形式的通知"
       },
       "photo": "这只是只猫",
-      "text": "文本显示"
+      "text": "文本显示",
+      "update": "此消息将在 5 秒后更新。",
+      "update_2": "消息已更新。"
     },
     "start": {
       "continue": "继续",

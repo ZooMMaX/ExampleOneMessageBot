@@ -6,7 +6,8 @@
         "docs": "Open the library documentation",
         "notification": "Send a notification",
         "photo": "Show image",
-        "text": "Display plain text"
+        "text": "Display plain text",
+        "update": "Updatable message"
       },
       "main": "Test the functionality.\nTo return to the language selection, send /start",
       "notification": "Check the notifications below",
@@ -15,7 +16,9 @@
         "full": "This is a notification in the form of a chat message"
       },
       "photo": "It's just a cat",
-      "text": "Text display"
+      "text": "Text display",
+      "update": "This message will update in 5 seconds.",
+      "update_2": "The message has been updated."
     },
     "start": {
       "continue": "Continue",
